@@ -20,11 +20,9 @@ pipeline {
     stage('Run tests inside image') {
       steps {
         script {
-          // запускаем контейнер и выполняем pytest, сохраняя junit xml в workspace
           image.inside("-u root") {
-            // убедимся, что pytest установлен (в образе должен быть)
-            sh 'pytest --junitxml=pytest-report.xml --maxfail=1 -q'
-            // скопируем файл (он уже в workspace внутри контейнера)
+            // быстрый фикс: добавляем PYTHONPATH
+            sh 'PYTHONPATH=. pytest --junitxml=pytest-report.xml --maxfail=1 -q'
           }
         }
       }
