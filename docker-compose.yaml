@@ -12,6 +12,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock   # даёт доступ к хостовому docker (см. замечание о безопасности)
       - /usr/bin/docker:/usr/bin/docker             # иногда нужно, чтобы docker-cli был доступен в контейнере
     environment:
+      - DOCKER_GID=1001
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
 volumes:
   jenkins_home:
