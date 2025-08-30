@@ -9,5 +9,5 @@ def test_add_negative():
 def test_add_zero():
     assert add(0, 5) == 5
 
-def test__fall():
+def test_fall():
     assert add(0, 1) == 0
