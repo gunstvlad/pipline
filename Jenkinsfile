@@ -22,7 +22,7 @@ pipeline {
         script {
           image.inside("-u root") {
             // быстрый фикс: добавляем PYTHONPATH
-            sh 'PYTHONPATH=. pytest --junitxml=pytest-report.xml --maxfail=1 -q'
+            sh 'PYTHONPATH=. pytest -vv --junitxml=pytest-report.xml'
           }
         }
       }
